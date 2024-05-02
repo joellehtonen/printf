@@ -6,7 +6,13 @@
 /*   By: jlehtone <jlehtone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 15:59:49 by jlehtone          #+#    #+#             */
-/*   Updated: 2024/05/02 15:59:49 by jlehtone         ###   ########.fr       */
+/*   Updated: 2024/05/02 16:53:55 by jlehtone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+void	integer(int i)
+{
+	ft_putnbr_fd(i, 1);
+}

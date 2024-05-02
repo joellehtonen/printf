@@ -6,7 +6,13 @@
 /*   By: jlehtone <jlehtone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 15:59:38 by jlehtone          #+#    #+#             */
-/*   Updated: 2024/05/02 15:59:39 by jlehtone         ###   ########.fr       */
+/*   Updated: 2024/05/02 16:45:38 by jlehtone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+void	string(char *s)
+{
+	ft_putstr_fd(s, 1);
+}
