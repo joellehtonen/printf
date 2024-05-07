@@ -6,11 +6,11 @@
 /*   By: jlehtone <jlehtone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 15:59:51 by jlehtone          #+#    #+#             */
-/*   Updated: 2024/05/07 09:59:27 by jlehtone         ###   ########.fr       */
+/*   Updated: 2024/05/07 13:15:12 by jlehtone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 int	ft_hexa(unsigned long i, char format)
 {
@@ -29,15 +29,3 @@ int	ft_hexa(unsigned long i, char format)
 	len += ft_character(base[i % 16]);
 	return (len);
 }
-
-/*int main(void)
-{
-	int i;
-	int j;
-
-	i = ft_hexa(25500, 'x');
-	write(1, "\n", 1);
-	j = printf("%x", 25500);
-	printf("%d \n", i);
-	printf("%d \n", j);
-}*/

@@ -6,16 +6,14 @@
 /*   By: jlehtone <jlehtone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 08:56:49 by jlehtone          #+#    #+#             */
-/*   Updated: 2024/05/07 11:31:51 by jlehtone         ###   ########.fr       */
+/*   Updated: 2024/05/07 15:18:33 by jlehtone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 static int	function_chooser(char format, va_list args)
 {
-	//void	*ptr;
-
 	if (format == 'c')
 		return (ft_character(va_arg(args, int)));
 	else if (format == 's')
@@ -23,7 +21,7 @@ static int	function_chooser(char format, va_list args)
 	else if (format == 'i' || format == 'd')
 		return (ft_integer(va_arg(args, int)));
 	else if (format == 'u')
-		return (ft_unsigned_decimal(va_arg(args, unsigned int)));
+		return (ft_unsigned(va_arg(args, unsigned int)));
 	else if (format == 'x' || format == 'X')
 		return (ft_hexa(va_arg(args, unsigned int), format));
 	else if (format == 'p')
@@ -59,7 +57,6 @@ int	ft_printf(const char *input, ...)
 	va_end(args);
 	return (len);
 }
-
 int	main(void)
 {
 	int 	i;

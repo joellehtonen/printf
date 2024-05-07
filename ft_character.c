@@ -6,11 +6,11 @@
 /*   By: jlehtone <jlehtone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 16:00:09 by jlehtone          #+#    #+#             */
-/*   Updated: 2024/05/07 09:51:55 by jlehtone         ###   ########.fr       */
+/*   Updated: 2024/05/07 15:09:42 by jlehtone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 int	ft_character(char c)
 {
