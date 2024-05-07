@@ -6,32 +6,30 @@
 /*   By: jlehtone <jlehtone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 08:56:49 by jlehtone          #+#    #+#             */
-/*   Updated: 2024/05/03 15:22:34 by jlehtone         ###   ########.fr       */
+/*   Updated: 2024/05/07 11:31:51 by jlehtone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// what about characters like /n?
-
-static int	function_chooser(char input_char, va_list args)
+static int	function_chooser(char format, va_list args)
 {
-	void *ptr;
-	
-	if (input_char == 'c')
-		ft_character(va_arg(args, char));
-	else if (input_char == 's')
-		ft_string(va_arg(args, char *));
-	else if (input_char == 'i' || input_char == 'd')
-		ft_integer(va_arg(args, int));
-	else if (input_char == 'u')
-		ft_unsigned_decimal(va_arg(args, unsigned int));
-	else if (input_char == 'x' || input_char == 'X')
-		ft_hexa(va_arg(args, unsigned int), input_char);
-	else if (input_char == "p")
-		ft_void_pointer;
-	else if (input_char == '%')
-		ft_putchar_fd('%', 1);
+	//void	*ptr;
+
+	if (format == 'c')
+		return (ft_character(va_arg(args, int)));
+	else if (format == 's')
+		return (ft_string(va_arg(args, char *)));
+	else if (format == 'i' || format == 'd')
+		return (ft_integer(va_arg(args, int)));
+	else if (format == 'u')
+		return (ft_unsigned_decimal(va_arg(args, unsigned int)));
+	else if (format == 'x' || format == 'X')
+		return (ft_hexa(va_arg(args, unsigned int), format));
+	else if (format == 'p')
+		return (ft_void_pointer(va_arg(args, void *)));
+	else if (format == '%')
+		return (ft_character('%'));
 	else
 		return (-1);
 }
@@ -39,20 +37,66 @@ static int	function_chooser(char input_char, va_list args)
 int	ft_printf(const char *input, ...)
 {
 	int		index;
-	va_list args;
+	int		len;
+	va_list	args;
 
+	len = 0;
+	index = 0;
 	va_start(args, input);
+	if (input == 0)
+		return (-1);
 	while (input[index] != '\0')
-	 {
+	{
 		if (input[index] == '%')
-			function_chooser(*(input + index + 1), args);
+		{
+			len += function_chooser(*(input + index + 1), args);
+			index++;
+		}
 		else
-			ft_putchar_fd(input[index], 1);
+			len += ft_character(input[index]);
 		index++;
-	 }
+	}
 	va_end(args);
-	if //something
-		return (1);
-	else
-		return (0);
+	return (len);
+}
+
+int	main(void)
+{
+	int 	i;
+	int 	j;
+	char 	a = 'a';
+	char 	*b = "abc";
+	int 	c = -12;
+	int 	d = 12;
+	int 	e = 1500;
+	char 	*ptr = NULL;
+
+	i = ft_printf("%c\n", a);
+	j = printf("%c\n", a);
+	printf("%d\n", i);
+	printf("%d\n", j);
+	i = ft_printf("%s\n", b);
+	j = printf("%s\n", b);
+	printf("%d\n", i);
+	printf("%d\n", j);
+	i = ft_printf("%i\n", c);
+	j = printf("%i\n", c);
+	printf("%d\n", i);
+	printf("%d\n", j);
+	i = ft_printf("%u\n", d);
+	j = printf("%u\n", d);
+	printf("%d\n", i);
+	printf("%d\n", j);
+	i = ft_printf("%x\n", e);
+	j = printf("%x\n", e);
+	printf("%d\n", i);
+	printf("%d\n", j);
+	i = ft_printf("%p\n", ptr);
+	j = printf("%p\n", ptr);
+	printf("%d\n", i);
+	printf("%d\n", j);
+	i = ft_printf("%d%%\n", d);
+	j = printf("%d%%\n", d);
+	printf("%d\n", i);
+	printf("%d\n", j);
 }

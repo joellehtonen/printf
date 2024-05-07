@@ -1,43 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_unsigned_decimal.c                              :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlehtone <jlehtone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/02 15:59:40 by jlehtone          #+#    #+#             */
-/*   Updated: 2024/05/07 11:08:09 by jlehtone         ###   ########.fr       */
+/*   Created: 2024/05/02 10:00:31 by jlehtone          #+#    #+#             */
+/*   Updated: 2024/05/06 09:30:29 by jlehtone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	int_counter(int n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int	len;
-
-	len = 0;
-	while (n != 0)
+	if (n == -2147483648)
 	{
-		n = n / 10;
-		len++;
+		ft_putchar_fd('-', fd);
+		ft_putchar_fd('2', fd);
+		n = 147483648;
 	}
-	return (len);
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		n = n * -1;
+	}
+	if (n >= 10)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
+	}
+	else
+		ft_putchar_fd(n + '0', fd);
 }
-
-int	ft_unsigned_decimal(unsigned long i)
-{
-	int	len; 
-
-	len = 0;
-	len = int_counter(i);
-	ft_putnbr_fd(i, 1);
-	return (len);
-}
-
-/*int	main(void)
-{
-	ft_unsigned_decimal(13);
-	write(1, "\n", 1);
-	printf("%u \n", 13);
-}*/

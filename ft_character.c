@@ -6,13 +6,14 @@
 /*   By: jlehtone <jlehtone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 16:00:09 by jlehtone          #+#    #+#             */
-/*   Updated: 2024/05/02 16:45:34 by jlehtone         ###   ########.fr       */
+/*   Updated: 2024/05/07 09:51:55 by jlehtone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	character(char c)
+int	ft_character(char c)
 {
-	ft_putchar_fd(c, 1);
+	write(1, &c, 1);
+	return (1);
 }
