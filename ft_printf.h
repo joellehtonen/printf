@@ -6,7 +6,7 @@
 /*   By: jlehtone <jlehtone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 16:00:45 by jlehtone          #+#    #+#             */
-/*   Updated: 2024/05/07 13:43:33 by jlehtone         ###   ########.fr       */
+/*   Updated: 2024/05/08 16:53:24 by jlehtone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdarg.h>
 # include <stdio.h>
 # include <limits.h>
-# include "./libft/libft.h"
 
 int		ft_character(char c);
 int		ft_hexa(unsigned long i, char format);

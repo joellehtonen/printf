@@ -6,7 +6,7 @@
 /*   By: jlehtone <jlehtone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 15:59:51 by jlehtone          #+#    #+#             */
-/*   Updated: 2024/05/07 13:15:12 by jlehtone         ###   ########.fr       */
+/*   Updated: 2024/05/08 09:41:03 by jlehtone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	ft_hexa(unsigned long i, char format)
 	{
 		len += ft_hexa(i / 16, format);
 	}
-	len += ft_character(base[i % 16]);
+	if (ft_character(base[i % 16]) == -1)
+		return (-1);
+	len++;
 	return (len);
 }

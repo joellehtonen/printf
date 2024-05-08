@@ -6,7 +6,7 @@
 /*   By: jlehtone <jlehtone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 15:59:38 by jlehtone          #+#    #+#             */
-/*   Updated: 2024/05/07 13:15:23 by jlehtone         ###   ########.fr       */
+/*   Updated: 2024/05/08 16:39:18 by jlehtone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,5 @@ int	ft_string(char *s)
 	len = 0;
 	while (s[len] != '\0')
 		len++;
-	write(1, s, len);
-	return (len);
+	return (write(1, s, len));
 }

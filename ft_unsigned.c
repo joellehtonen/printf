@@ -6,7 +6,7 @@
 /*   By: jlehtone <jlehtone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 15:59:40 by jlehtone          #+#    #+#             */
-/*   Updated: 2024/05/07 15:04:48 by jlehtone         ###   ########.fr       */
+/*   Updated: 2024/05/08 09:47:50 by jlehtone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ static int	int_printer(int i)
 	if (l >= 10)
 		len += int_printer(l / 10);
 	c = (l % 10) + '0';
-	len += write(1, &c, 1);
+	if (write(1, &c, 1) == -1)
+		return (-1);
+	len++;
 	return (len);
 }
 
