@@ -6,7 +6,7 @@
 /*   By: jlehtone <jlehtone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 08:56:49 by jlehtone          #+#    #+#             */
-/*   Updated: 2024/05/08 16:56:36 by jlehtone         ###   ########.fr       */
+/*   Updated: 2024/05/09 09:35:09 by jlehtone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,44 +32,46 @@ static int	function_chooser(const char format, va_list args)
 		return (-1);
 }
 
-static int	input_printer(const char *input, va_list args)
+static int	input_printer(const char *input, va_list args, int index, int len)
 {
-	int		check;
-	int		len;
+	int	check;
 
-	len = 0;
-	while (*input != '\0')
+	while (input[index] != '\0')
 	{
-		if (*input == '%')
+		if (input[index] == '%')
 		{
-			check = function_chooser(*(input + 1), args);
+			check = function_chooser(*(input + index + 1), args);
 			if (check == -1)
 				return (-1);
 			len += check;
-			input++;
+			index++;
 		}
 		else
 		{
-			check = ft_character(*input);
+			check = ft_character(input[index]);
 			if (check == -1)
 				return (-1);
 			len += check;
 		}
-		input++;
+		if (!*input)
+			return (0);
+		index++;
 	}
 	return (len);
 }
 
 int	ft_printf(const char *input, ...)
 {
+	int		index;
 	int		len;
 	va_list	args;
 
 	len = 0;
+	index = 0;
 	va_start(args, input);
 	if (input == 0)
 		return (-1);
-	len = input_printer(input, args);
+	len = input_printer(input, args, index, len);
 	va_end(args);
 	return (len);
 }

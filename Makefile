@@ -11,7 +11,6 @@ SOURCES = \
 			ft_unsigned.c \
 			ft_void_pointer.c
 OBJECTS = $(SOURCES:.c=.o)
-HEADER = ft_printf.h
 
 all: $(NAME)
 
@@ -19,7 +18,7 @@ $(NAME): $(OBJECTS)
 	$(AR) $(NAME) $(OBJECTS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c -I $(HEADER) $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJECTS)

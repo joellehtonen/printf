@@ -6,7 +6,7 @@
 /*   By: jlehtone <jlehtone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 15:59:56 by jlehtone          #+#    #+#             */
-/*   Updated: 2024/05/08 09:51:22 by jlehtone         ###   ########.fr       */
+/*   Updated: 2024/05/09 09:13:30 by jlehtone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,11 @@ int	ft_void_pointer(void *pointer)
 
 	format = 'x';
 	len = 0;
-	len = ft_string("0x");
+	check = ft_string("0x");
+	if (check == -1)
+		return (check);
+	else
+		len += check;
 	check = ft_hexa((unsigned long)pointer, format);
 	if (check == -1)
 		return (check);

@@ -6,7 +6,7 @@
 /*   By: jlehtone <jlehtone@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 16:00:45 by jlehtone          #+#    #+#             */
-/*   Updated: 2024/05/08 16:53:24 by jlehtone         ###   ########.fr       */
+/*   Updated: 2024/05/09 09:55:00 by jlehtone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 # include <limits.h>
 
 int		ft_character(char c);
-int		ft_hexa(unsigned long i, char format);
+int		ft_hexa(unsigned long l, char format);
 int		ft_integer(int i);
 int		ft_printf(const char *input, ...);
 int		ft_string(char *s);
-int		ft_unsigned(unsigned long i);
+int		ft_unsigned(unsigned long l);
 int		ft_void_pointer(void *pointer);
 
 #endif
